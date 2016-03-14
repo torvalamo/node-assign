@@ -1,0 +1,14 @@
+{
+  "name": "node-assign",
+  "version": "1.0.0",
+  "description": "Recursive Object.assign as a node module",
+  "main": "assign.js",
+  "repository": "tivalamo/node-assign",
+  "keywords": [
+    "object",
+    "assign",
+    "recursive",
+    "merge"
+  ],
+  "license": "MIT"
+}
