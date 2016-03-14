@@ -1,6 +1,7 @@
 # node-assign
 
 [![npm version](https://badge.fury.io/js/node-assign.svg)](https://badge.fury.io/js/node-assign)
+[![Build Status](https://travis-ci.org/torvalamo/node-assign.svg?branch=master)](https://travis-ci.org/torvalamo/node-assign)
 
 Recursive Object.assign as a node module
 
