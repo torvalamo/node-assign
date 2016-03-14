@@ -1,5 +1,27 @@
 # node-assign
+
 Recursive Object.assign as a node module
+
+## Usage
+
+Install
+
+    npm install node-assign
+    
+Use
+
+    var assign = require('node-assign')
+    
+    var objA = {foo: 1, bar: 99}
+    var objB = {bar: 2, baz: 3}
+    
+    var objC = assign(objA, objB)
+    console.log(objC)
+    // {foo: 1, bar: 2, baz: 3}
+
+You can also globalize it into `Object`, but I suggest you use a different name than `assign`, since the built-in function may be used in various libraries which require its specific functionality.
+
+    Object.merge = require('node-assign')
 
 ## Caveats
 
