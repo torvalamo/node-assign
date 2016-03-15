@@ -10,5 +10,8 @@
     "recursive",
     "merge"
   ],
-  "license": "MIT"
+  "license": "MIT",
+  "engines": {
+    "node": ">=4.0.0"
+  }
 }
