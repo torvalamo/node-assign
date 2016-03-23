@@ -1,18 +1,35 @@
-module.exports = function() {
-  return Array.prototype.reduce.call(arguments, (prev, cur) => {
-    return assign(prev, cur)
-  }, {})
+module.exports = function assign(target, ...sources) {
+  sources.forEach((source) => {
+    Object.keys(source).forEach((key) => {
+      // If the target key has an object
+      if (key in target && target[key] instanceof Object) {
+        // and the source key is also an object
+        if (source[key] instanceof Object) {
+          // then merge them (source overwrites same keys).
+          return assign(target[key], source[key]);
+        }
+      }
+      target[key] = source[key];
+    });
+  });
+  return target;
 }
 
-function assign(to, from) {
-  if (from instanceof Object) {
-    Object.keys(from).forEach((key) => {
-      if (from[key] instanceof Object && to[key] instanceof Object) {
-        assign(to[key], from[key])
-      } else {
-        to[key] = from[key]
+exports.merge = function merge(target, ...sources) {
+  sources.forEach((source) => {
+    Object.keys(source).forEach((key) => {
+      // If the target key has an object
+      if (key in target && target[key] instanceof Object) {
+        // and the source key is also an object
+        if (source[key] instanceof Object) {
+          // then merge them (source overwrites same keys).
+          return merge(target[key], source[key]);
+        }
+        // If the source key is not an object, we don't overwrite the target object.
+        return;
       }
-    })
-  }
-  return to
+      target[key] = source[key];
+    });
+  });
+  return target;
 }
