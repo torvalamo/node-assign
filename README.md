@@ -6,17 +6,17 @@
 
 Recursive Object.assign as a node module.
 
-## Important version update 1.1
-
-The current version of the function ALTERS the target object, similar to Object.assign. If you need the function to return a brand new object, use an empty object literal `{}` as the first argument.
-
 ## Usage
-
-Install
 
     npm install node-assign
 
-There are two functions included (in 1.1). The `assign` function (default) and the explicitly called `merge` function.
+There are two functions included. The `assign` function (default) and the explicitly called `merge` function.
+
+    require('node-assign')(target, ...sources) 
+    //-> return target
+
+    require('node-assign').merge(target, ...sources) 
+    //-> return target
 
 The only difference between the two is that `assign` will overwrite sub objects with supplied non-objects, whereas `merge` will preserve object depth in the target (or add to it). `merge` will **never** remove a target key hierarchy, whereas `assign` might drop entire sub objects if given non-object keys. See below for example.
     
@@ -52,6 +52,10 @@ You can also globalize it into `Object`, but I suggest you use a different name 
     Object.merge = Object.rassign.merge // deep merge
 
 ## Caveats
+
+## Important version update 1.1
+
+The current version of the function ALTERS the target object, similar to Object.assign. If you need the function to return a brand new object, use an empty object literal `{}` as the first argument.
 
 ### Only objects
 
