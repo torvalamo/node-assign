@@ -1,4 +1,7 @@
-module.exports = function assign(target, ...sources) {
+'use strict';
+
+module.exports = function assign(target) {
+  const sources = Array.prototype.slice.call(arguments, 1);
   sources.forEach((source) => {
     Object.keys(source).forEach((key) => {
       // If the target key has an object
@@ -15,7 +18,8 @@ module.exports = function assign(target, ...sources) {
   return target;
 }
 
-exports.merge = function merge(target, ...sources) {
+exports.merge = function merge(target) {
+  const sources = Array.prototype.slice.call(arguments, 1);
   sources.forEach((source) => {
     Object.keys(source).forEach((key) => {
       // If the target key has an object
