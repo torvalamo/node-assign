@@ -1,6 +1,6 @@
 'use strict';
 
-module.exports = function assign(target) {
+function assign(target) {
   const sources = Array.prototype.slice.call(arguments, 1);
   sources.forEach((source) => {
     Object.keys(source).forEach((key) => {
@@ -18,7 +18,7 @@ module.exports = function assign(target) {
   return target;
 }
 
-exports.merge = function merge(target) {
+function merge(target) {
   const sources = Array.prototype.slice.call(arguments, 1);
   sources.forEach((source) => {
     Object.keys(source).forEach((key) => {
@@ -37,3 +37,6 @@ exports.merge = function merge(target) {
   });
   return target;
 }
+
+module.exports = assign;
+assign.merge = merge;
