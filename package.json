@@ -1,6 +1,6 @@
 {
   "name": "node-assign",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "description": "Recursive Object.assign as a node module",
   "main": "assign.js",
   "repository": "torvalamo/node-assign",
